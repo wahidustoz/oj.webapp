@@ -1,0 +1,15 @@
+.page-item .page-link[b-4kqfsgi48t]{
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+    border: solid 1px #6c757d !important;
+    /* border: none; */
+}
+
+.disabled .page-link[b-4kqfsgi48t]{
+    color: #6c757d !important;
+}
+
+.page-item .page-link:hover[b-4kqfsgi48t], 
+.page-item .page-link.active[b-4kqfsgi48t] {
+    background-color: #6c757d !important;
+}

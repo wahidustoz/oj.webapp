@@ -1,0 +1,86 @@
+@page "/problems"
+@using oj.webapp.Components
+
+<div class="row my-3 mx-0">
+    <div class="col-lg-8 col-md-10 mx-auto mb-3 card bg-dark">
+        
+        <ProblemsTableHeader/>
+
+        <table class="table table-dark table-hover table-borderless">
+            
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">AC Rate</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    @foreach (var p in _Problems)
+                    {
+                        var badge = p.Difficulty switch
+                        {
+                            "Mid" => "warning",
+                            "High" => "danger",
+                            _ => "primary"
+                        };
+
+                        <td>
+                            @if(p.MyStatus == 1)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </td>
+                        <th scope="row">@p.Id</th>
+                        <td>@p.Title</td>
+                        <td>
+                            <button type="button" class="btn btn-@badge badge">
+                                @p.Difficulty
+                            </button>
+                        </td>
+                        <td>@string.Format($"{p.AcceptedNumber / p.SubmissionNumber * 100:ff}")%</td>
+                    }
+                </tr>
+            </tbody>
+            
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-lg-3 col-md-10 my-0 mx-auto card bg-dark">
+        <div class="card-header">
+            <h5 class="card-header text-light">Tags</h5>
+
+
+        </div>
+        <div class="container">
+            @foreach(var tag in Tags)
+            {
+                <button class="btn btn-sm m-1 btn-outline-warning">
+                    @tag
+                </button>                 
+            }
+        </div>
+        <div class="container row mx-auto mt-auto mb-3">
+            <button class="btn btn-outline-light fw-bold">
+                <i class="fas fa-random"></i> Pick random
+            </button>
+        </div>
+    </div>
+</div>

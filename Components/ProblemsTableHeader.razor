@@ -1,0 +1,24 @@
+@inherits LayoutComponentBase
+
+<div class="card-header row mt-2">
+    <h4 class="text-light col me-auto my-auto">Problem list</h4>
+
+    <div class="col-md-8 d-flex my-3">
+        <div class="dropdown mx-auto">
+            <button class="dropdown-toggle btn btn-outline-secondary me-2" href="#" id="difficulty-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Difficulty
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="difficulty-dropdown">
+                <li><a class="dropdown-item" href="#">All</a></li>
+                <li><a class="dropdown-item" href="#">High</a></li>
+                <li><a class="dropdown-item" href="#">Mid</a></li>
+                <li><a class="dropdown-item" href="#">Low</a></li>
+            </ul>
+        </div>
+        <form class="d-flex">
+            <input class="form-control bg-dark text-light me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+
+</div>
